@@ -75,7 +75,7 @@ module gcd_tb;
         // Wait for done or timeout
         start_time = $time;
         wait (done || $time - start_time >= TIMEOUT);
-
+        $display("test");
         if (!done) begin
           $warning("Timeout: done never asserted for x=%0d, y=%0d", i, j);
         end
