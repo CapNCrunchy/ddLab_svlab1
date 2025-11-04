@@ -52,7 +52,6 @@ always_comb begin
         S_COMPARE: begin
             if (!x_ne_y) begin
                 output_en = 1;
-                done      = 1;
                 next_state = S_DONE;
             end
             else if (x_lt_y)
@@ -71,7 +70,6 @@ always_comb begin
             next_state = S_COMPARE;
         end
         S_DONE: begin
-            output_en = 1;
             done      = 1;
             if (!go)
                 next_state = S_IDLE;
