@@ -72,7 +72,7 @@ always_comb begin
         S_DONE: begin
             done      = 1;
             if (go)
-                next_state = S_IDLE;
+                next_state = S_LOAD;
         end
         default:begin
             next_state = S_IDLE;
