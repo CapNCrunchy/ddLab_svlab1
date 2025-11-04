@@ -50,8 +50,11 @@ always_comb begin
             next_state = S_COMPARE;
         end
         S_COMPARE: begin
-            if (!x_ne_y)
+            if (!x_ne_y) begin
+                output_en = 1;
+                done      = 1;
                 next_state = S_DONE;
+            end
             else if (x_lt_y)
                 next_state = S_SUB_Y;
             else
