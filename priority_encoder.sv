@@ -4,6 +4,15 @@ module priority_encoder (
   output logic       valid
 );
 
- // Your code here
+always_comb begin
+  if(req[7]) enc = 3'b111;
+    else if(req[6]) enc = 3'b110;
+    else if(req[5]) enc = 3'b110;
+    else if(req[4]) enc = 3'b101;
+    else if(req[3]) enc = 3'b100;
+    else if(req[2]) enc = 3'b010;
+    else if(req[1]) enc = 3'b001;
+    else enc = 3'b000;
+end
 
 endmodule

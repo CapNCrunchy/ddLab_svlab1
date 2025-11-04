@@ -15,7 +15,19 @@ module datapath #(
     output logic               x_ne_y
 );
 
+logic [WIDTH-1:0] sub0_out, regX_in, sub1_out, regY_in, regX_out, regY_out;
     
-// Your code here
+mux2x1 mux0(x_sel, x, sub0_out, regX_in);
+mux2x1 mux1(y_sel, y, sub1_out, regY_in);
+
+regg regX(clk, rst, x_en, regX_in, regX_out);
+regg regY(clk, rst, y_en, regY_in, regY_out);
+
+comparator comp(x, y, x_lt_y, x_ne_y);
+
+subtractor sub0(x, y, sub0_out);
+subtractor sub1(y, x, sub1_out);
+
+regg regOut(clk, rst, output_en, regX_out, out_data);
 
 endmodule

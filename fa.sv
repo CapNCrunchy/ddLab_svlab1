@@ -6,6 +6,7 @@ module fa (
   output logic carry_out
 );
 
-  // Your code here
+assign sum = input1 ^ input2 ^ carry_in;
+assign carry_out = (input1 & input2) | (input1 & carry_in) | (input2 & carry_in);
 
 endmodule
