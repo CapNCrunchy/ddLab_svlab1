@@ -71,7 +71,7 @@ always_comb begin
         end
         S_DONE: begin
             done      = 1;
-            if (!go)
+            if (go)
                 next_state = S_IDLE;
         end
         default:begin
